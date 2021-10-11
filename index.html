@@ -1,26 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Vue Mastery</title>
-    <!-- Import Styles -->
-    <link rel="stylesheet" href="./assets/styles.css" />
-    <!-- Import Vue.js -->
-    <script src="https://unpkg.com/vue@3.0.0-beta.12/dist/vue.global.js"></script>
-  </head>
-  <body>
-    <div id="app">
-      <h1>{{ product }}</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <title>Hello Vue!</title>
+</head>
+<body>
+    <div id="helloVue">
+        <h1>{{ title }}</h1>
+        <p>{{message}}</p>
     </div>
 
-    <!-- Import Js -->
-    <script src="./main.js"></script>
+    <div id="example">
+        <h1>{{ title + ', ' + name.toUpperCase() }}</h1>
+        <img v-bind:src="img.src" v-bind:alt="img.alt">
+        <p v-text="message"></p>
+    </div>
 
-    <script>
-      const mountedApp = app.mount('#app')
-      //  at console try below
-      //  mountedApp.product = 'Shoes'
-    </script>
+    <div id="book">
+<!--        <h2 v-on:click="sayHello">{{ title }}</h2>-->
+        <h2 v-on:click="toggleDetails">{{ title }}</h2>
+        <div id="bookDetail" v-show="showDetail">
+            <p>{{ author }}</p>
+            <p>{{ summary }}</p>
+        </div>
 
-  </body>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
 </html>
