@@ -144,3 +144,26 @@ const app = new Vue({
   }
 })
 ```
+### watch 
+computed value will only recompute when a dynamic value used inside of its getter function changes. For example, in our previous examples languageLevel would only be recomputed if hoursStudied changed. But what do we do if we want to make app updates without explicitly using a value in a computed function? We use the watch property.
+
+```
+const app = new Vue({
+  el: '#app',
+  data: {
+    currentLanguage: 'Spanish',
+    supportedLanguages: ['Spanish', 'Italian', 'Arabic'],
+    hoursStudied: 274
+  },
+  watch: {
+    currentLanguage: function (newCurrentLanguage, oldCurrentLanguage) {
+      if (supportedLanguages.includes(newCurrentLanguage)) {
+        this.hoursStudied = 0;
+      } else {
+        this.currentLanguage = oldCurrentLanguage;
+      }
+    }
+  }
+});
+```
+
