@@ -1,3 +1,11 @@
+Documentation
+```
+data - used for storing known dynamic values
+computed - used for computing dynamic values based on known dynamic values — can additionally specify a setter by specifying get and set functions — the setter will update other dynamic values when the computed value changes
+watch - used for performing functionality when a specified dynamic value changes
+methods - used for storing instance methods to be used throughout the app
+```
+
 Install Vue
 ```
 npm init vue@3
@@ -166,4 +174,23 @@ const app = new Vue({
   }
 });
 ```
+### Instance Method 
+html
+```
+<button v-on:click="resetProgress">Reset Progress</button>
+```
 
+js
+```
+const app = new Vue({
+  el:"#app",
+  data: {
+    hoursStudied: 300
+  },
+  methods: {
+    resetProgress: function(){
+      this.hoursStudied = 0;
+    }
+  }
+})
+```
